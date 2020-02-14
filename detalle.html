@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+
+
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+
+<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+ <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+
+   <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+
+
+    <div class="nes-container with-title is-centered maincontainer">
+
+
+
+      <p class="title maintitle" id="nombre" ></p>
+
+      <img class="img" id="image"src="" alt="pokemon">
+      <br>
+
+      <span class="nes-badge"><span id ="tipo" class="tag"></span></span>
+      <br>
+      <a href="#" class="nes-badge"><span id ="tipa" class="tag"></span></a>
+
+
+      <div class="poderes">
+
+        <div style="display:inline">
+          <span>Ataque :</span>
+          <span id ="atk">sp_atk</span>
+        </div>
+
+
+        <div class="">
+          <span>Defensa :</pspan>
+            <span id ="defensa">defense</span>
+          </div>
+
+          <div class="">
+            <span>sa_atk :</span>
+            <span id ="ataque">attack</span>
+          </div>
+
+          <div class="">
+            <span>sp_def :</span>
+            <span id ="def">sp_def</span>
+          </div>
+
+          <div class="">
+            <span>speed :</span>
+            <span id ="velocidad">speed</span>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    <div class="botones">
+
+      <button id="antes" type="button" class="nes-btn is-warning ">Anterior</button>
+      <button id="despues" type="button" class="nes-btn is-success ">Siguiente</button>
+      <a href="index.html"><button id="index" type="button" class="nes-btn  ">lista</button></a>
+
+    </div>
+
+  </body>
+    <script type="text/javascript" src="pokemons/pokemons.js">
+    </script>
+    <script>
+
+      var url = window.location.search.replace('?idx','idx').split('&')[0]
+      var idx = parseInt(url.split('=')[1])
+
+    var poke = data.results[idx]
+
+    document.getElementById('tipo').innerHTML=poke.type[0]
+    document.getElementById('tipo').className += ' ' +poke.type[0].toLowerCase()
+    if (poke.type.length>1) {
+      document.getElementById('tipa').innerHTML=poke.type[1]
+      document.getElementById('tipa').className += ' ' +poke.type[1].toLowerCase()
+
+    }
+
+
+
+    document.getElementById('nombre').innerHTML=poke.name
+    document.getElementById('image').src=poke.sprites.animated
+    document.getElementById('ataque').innerHTML=poke.attack
+    document.getElementById('defensa').innerHTML=poke.defense
+    document.getElementById('atk').innerHTML=poke.sp_atk
+    document.getElementById('def').innerHTML=poke.sp_def
+    document.getElementById('velocidad').innerHTML=poke.speed
+
+
+
+    document.getElementById("antes").addEventListener("click", function (){
+      newID=idx-1
+     window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID
+
+
+
+
+
+
+});
+
+ document.getElementById("despues").addEventListener("click", function (){
+  newID2=idx+1
+ window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID2
+
+});
+
+
+</script>
+
+</html>

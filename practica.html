@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>practica</title>
+  </head>
+  <body>
+    <h1>dimelooo</h1>
+    <style media="screen">
+      h1 {
+        color:red;
+      }
+    </style>
+  </body>
+<script type="text/javascript">
+
+
+  var fido = {
+    name:'amilcar',
+    apellido:'mora',
+    trabajo:'programador',
+    hobby:'rapear',
+    edad: 15,
+    peso: 60
+  }
+  var patty = {
+    name: 'patricia',
+    apellido:'aguirre',
+    trabajo:'hospital',
+    hobby:'tomar',
+    edad:19,
+    peso:67
+
+  }
+function Persona(name,lastname,altura) {
+  this.name = name
+  this.lastname = lastname
+  this.altura = altura
+}
+
+// const esAlta = (altura) => altura >= 1.80
+
+Persona.prototype.saludar = function () {
+  console.log(`Hello me llamo ${this.name} ${this.lastname} y mido ${this.altura} mts `)
+}
+
+Persona.prototype.soyAlto = function () {
+  if (this.altura >=1.8) {
+    console.log('soy alto')
+  } else {
+    console.log('no soy alto')
+  }
+  
+}
+
+
+var fidel = new Persona('rafael','aguirre')
+var jenifer = new Persona('jlo','morales',1.8)
+var carlito = new Persona('carlo','perez',1.7)
+
+// esAlta()
+
+
+
+
+
+
+//   const MAYORIA_DE_EDAD = 18
+// const esMayorEdad = ({edad}) => edad >= MAYORIA_DE_EDAD
+// const esMenorEdad = ({edad}) => edad <= MAYORIA_DE_EDAD
+//
+//
+// function noAcceso(persona) {
+//   if (esMenorEdad(persona)) {
+//     console.log('ES MENOR DE EDAD')
+//   } else {
+//     console.log('SI ES MAYOR DE EDAD')
+//   }
+// }
+
+// function profesiones(persona) {
+// console.log(`${persona.name} es:`)
+// }
+//
+// if (persona.cantante) {
+//   console.log('Cantante')
+// }
+//
+// if (persona.escritor) {
+//   console.log('Escritor')
+// }
+//
+// if (persona.futbolista) {
+//   console.log('Futbolista')
+// }
+//
+// if (persona.poeta) {
+//   console.log('Poeta')
+// }
+//
+// if (persona.filosofo) {
+//   console.log('Filosofo')
+// }
+//
+// profesiones(persona)
+
+
+
+</script>
+</html>

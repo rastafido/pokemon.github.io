@@ -1,0 +1,123 @@
+
+
+th {
+  color: #258f66;
+}
+
+.maincontainer {
+  margin: 50px;
+}
+.img {
+  width: 300px;
+  height: 300px;
+}
+.maintitle {
+  font-size: 70px !important;
+  color: #752f1f;
+}
+
+.tag{
+position: absolute;
+top: 0;
+width: 100%;
+color: #fff;
+text-align: left;
+
+}
+
+.fire {
+
+  background-color: #f97102;
+  box-shadow: 0 0.5em #f97102, 0 -0.5em #f97102, 0.5em 0 #f97102, -0.5em 0 #f97102;
+}
+
+.flying {
+
+  background-color: #12d4e0;
+    box-shadow: 0 0.5em #12d4e0, 0 -0.5em #12d4e0, 0.5em 0 #12d4e0, -0.5em 0 #12d4e0;
+}
+
+.normal {
+  background-color: #a4a4a4;
+    box-shadow: 0 0.5em #a4a4a4, 0 -0.5em #a4a4a4, 0.5em 0 #a4a4a4, -0.5em 0 #a4a4a4;
+}
+.poison {
+  background-color: #352b5e;
+  box-shadow: 0 0.5em #352b5e, 0 -0.5em #352b5e, 0.5em 0 #352b5e, -0.5em 0 #352b5e;
+}
+.water {
+  background-color: #1a879a;
+    box-shadow: 0 0.5em #1a879a, 0 -0.5em #1a879a, 0.5em 0 #1a879a, -0.5em 0 #1a879a;
+}
+.bug {
+  background-color: #043918;
+  box-shadow: 0 0.5em #043918, 0 -0.5em #043918, 0.5em 0 #043918, -0.5em 0 #043918;
+}
+.dark {
+  background-color: #141f21;
+    box-shadow: 0 0.5em #141f21, 0 -0.5em #141f21, 0.5em 0 #141f21, -0.5em 0 #141f21;
+}
+.dragon{
+  background-color: #0abfdf;
+    box-shadow: 0 0.5em #0abfdf, 0 -0.5em #0abfdf, 0.5em 0 #0abfdf, -0.5em 0 #0abfdf;
+}
+.electric {
+  background-color: #c8b63c;
+    box-shadow: 0 0.5em #c8b63c, 0 -0.5em #c8b63c, 0.5em 0 #c8b63c, -0.5em 0 #c8b63c;
+}
+.fairy {
+  background-color: #501c2f;
+    box-shadow: 0 0.5em #501c2f, 0 -0.5em #501c2f, 0.5em 0 #501c2f, -0.5em 0 #501c2f;
+}
+.fighting {
+  background-color: #b04c21;
+    box-shadow: 0 0.5em #b04c21, 0 -0.5em #b04c21, 0.5em 0 #b04c21, -0.5em 0 #b04c21;
+
+
+}
+
+.ghost {
+  background-color: #112b4e;
+    box-shadow: 0 0.5em #112b4e, 0 -0.5em #112b4e, 0.5em 0 #112b4e, -0.5em 0 #112b4e;
+}
+.grass {
+  background-color: #18933a;
+    box-shadow: 0 0.5em #18933a, 0 -0.5em #18933a, 0.5em 0 #18933a, -0.5em 0 #18933a;
+}
+.ground {
+  background-color: #5d2d1e;
+    box-shadow: 0 0.5em #5d2d1e, 0 -0.5em #5d2d1e, 0.5em 0 #5d2d1e, -0.5em 0 #5d2d1e;
+}
+.ice {
+  background-color: #91d2de;
+    box-shadow: 0 0.5em #91d2de, 0 -0.5em #91d2de, 0.5em 0 #91d2de, -0.5em 0 #91d2de;
+}
+.psychic {
+  background-color: #b953cf;
+    box-shadow: 0 0.5em #b953cf, 0 -0.5em #b953cf, 0.5em 0 #b953cf, -0.5em 0 #b953cf;
+}
+.rock {
+  background-color: #241318;
+    box-shadow: 0 0.5em #241318, 0 -0.5em #241318, 0.5em 0 #241318, -0.5em 0 #241318;
+}
+.steel {
+  background-color: #9cb1b5;
+    box-shadow: 0 0.5em #9cb1b5, 0 -0.5em #9cb1b5, 0.5em 0 #9cb1b5, -0.5em 0 #9cb1b5;
+}
+/* botones */
+.botones {
+  margin:auto;
+  width: 420px;
+  height: 250px;
+}
+
+span {
+  font-size:20px;
+  margin: auto;
+  text-align: left;
+  /* background-color: #000; */
+  color: #a34ba9;
+}
+.poderes {
+  text-align: left;
+}
