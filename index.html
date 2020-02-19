@@ -19,16 +19,6 @@
     <label for="default_select">numero de pagina</label>
     <div class="nes-select">
       <select  required id="default_select">
-        <option selected value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
 
       </select>
     </div>
@@ -59,36 +49,48 @@
   <script>
 
   var tabla= document.getElementById('fila')
-  var datos =data.results
+  var datos = data.results
   var tabledata =''
   var numeroDePaginas= datos.length/10
   var tamanoDePaginas=10
   var pagina = 0
 
 
-
+   var numeros = Math.round(numeroDePaginas)
+   console.log(numeros)
 
     var itemfinal=pagina*tamanoDePaginas-1
     var iteminicial=itemfinal-(tamanoDePaginas-1)
 
     var selector = document.getElementById('default_select')
 
+    for (var i = 1; i <= numeros; i++) {
+      var opcion =  opcion+'<option   value="'+i+'">'+i+'</option>'
+
+      selector.innerHTML=opcion
+    }
+
     function cambiarPagina(pagina) {
+    numeroDePaginas*tamanoDePaginas
     var itemfinal=pagina*tamanoDePaginas-1
     var iteminicial=itemfinal-(tamanoDePaginas-1)
     console.log(selector.value)
     console.log(iteminicial)
     tabla.innerHTML=''
 
-
+    if (itemfinal>=datos.length) {
+      itemfinal=datos.length-1
+    }
 
     for (var i = iteminicial; i <= itemfinal; i++) {
+
 
       tabledata ='<tr><td>'+datos[i].name+'</td>'
       tabledata = tabledata+ '<td>'+datos[i].type+'</td>'
       tabledata = tabledata+ '<td>'+datos[i].national_number+'</td>'
-      tabledata = tabledata+ '<td>  <a href= "file:///home/donatello/newProject/detalle.html?idx=  button" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
+      tabledata = tabledata+ '<td> <a href="file:///home/donatello/newProject/detalle.html?idx='+i+ '"button" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
       tabla.innerHTML=tabla.innerHTML+tabledata
+
 
     }
 
@@ -96,8 +98,7 @@
 
 
 selector.addEventListener('change',function () {
-
-cambiarPagina(selector.value)
+  cambiarPagina(selector.value)
 
 })
 

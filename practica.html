@@ -11,54 +11,58 @@
         color:red;
       }
     </style>
+
   </body>
+
 <script type="text/javascript">
 
-
-  var fido = {
-    name:'amilcar',
-    apellido:'mora',
-    trabajo:'programador',
-    hobby:'rapear',
-    edad: 15,
-    peso: 60
-  }
-  var patty = {
-    name: 'patricia',
-    apellido:'aguirre',
-    trabajo:'hospital',
-    hobby:'tomar',
-    edad:19,
-    peso:67
-
-  }
-function Persona(name,lastname,altura) {
-  this.name = name
-  this.lastname = lastname
-  this.altura = altura
+function suma(nume1, nume2) {
+  return nume1+nume2;
 }
 
-// const esAlta = (altura) => altura >= 1.80
-
-Persona.prototype.saludar = function () {
-  console.log(`Hello me llamo ${this.name} ${this.lastname} y mido ${this.altura} mts `)
+function calcular(nume1,nume2, callback) {
+return callback(nume1,nume2);
 }
 
-Persona.prototype.soyAlto = function () {
-  if (this.altura >=1.8) {
-    console.log('soy alto')
-  } else {
-    console.log('no soy alto')
-  }
-  
+console.log(calcular(7,7, suma))
+
+function date(callback) {
+  console.log(new Date);
+  setTimeout(function (){
+    let date = new Date;
+    callback(date);
+  },3000)
 }
 
+function printDate(dateNow) {
+  console.log(dateNow)
+}
 
-var fidel = new Persona('rafael','aguirre')
-var jenifer = new Persona('jlo','morales',1.8)
-var carlito = new Persona('carlo','perez',1.7)
+date(printDate)
 
-// esAlta()
+
+
+
+  // var fido = {
+  //   name:'amilcar',
+  //   apellido:'mora',
+  //   trabajo:'programador',
+  //   hobby:'rapear',
+  //   edad: 15,
+  //   peso: 60
+  // }
+  // var patty = {
+  //   name: 'patricia',
+  //   apellido:'aguirre',
+  //   trabajo:'hospital',
+  //   hobby:'tomar',
+  //   edad:19,
+  //   peso:67
+  //
+  // }
+
+
+
 
 
 

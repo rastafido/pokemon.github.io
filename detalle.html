@@ -81,11 +81,12 @@
     <script type="text/javascript" src="pokemons/pokemons.js">
     </script>
     <script>
-
+      // const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
       var url = window.location.search.replace('?idx','idx').split('&')[0]
       var idx = parseInt(url.split('=')[1])
 
     var poke = data.results[idx]
+
 
     document.getElementById('tipo').innerHTML=poke.type[0]
     document.getElementById('tipo').className += ' ' +poke.type[0].toLowerCase()
@@ -107,6 +108,7 @@
 
 
 
+
     document.getElementById("antes").addEventListener("click", function (){
       newID=idx-1
      window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID
@@ -123,6 +125,7 @@
  window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID2
 
 });
+
 
 
 </script>
