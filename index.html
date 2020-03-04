@@ -2,115 +2,303 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="framework.css"/>
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
 
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 
-     <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
 
-     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
 
-       <link rel="stylesheet" href="index.css"/>
-      </head>
-  <body>
-  <div class="nes-container with-title is-centered maincontainer">
-    <label for="default_select">numero de pagina</label>
-    <div class="nes-select">
-      <select  required id="default_select">
+  </head>
+<body style="  background-color: #460404;">
+  <div id="imagen_Titulo">
+    <h1>Welcome to World </h1>
+    <center><img src="img/pokemon.png"width="550"
+    height="200" alt="titulo"></center>
 
-      </select>
+  </div>
+
+  <div class="nes-container with-title is-centered maincontainer">
+    <div style="display:inline-block">
+
+      <div style="display:inline-block" class="nes-field">
+        <div class="nes-field is-inline">
+          <label for="dark_field" ></label>
+          <input type="text" id="dark_field" class="nes-input " placeholder="Buscar Pokemon">
+
+         </div>
+      </div>
+
+      <div style="display:inline-block" class="selector">
+        <label for="dark_select" style="color:#fff">Cambiar  pagina</label>
+        <div class="nes-select ">
+          <select class="nes-input"required id="dark_select">
+          </select>
+        </div>
+      </div>
+      <label></label>
+      <div class="nes-select is-error">
+        <select  required id="error_select">
+          <option id="pokemones" value="" disabled selected hidden>tipos de pokemon</option>
+          <option value="Water">Water</option>
+          <option value="Fire">Fire</option>
+
+
+        </select>
+      </div>
     </div>
 
 
+
     <div class="tablet nes-table-responsive">
+    <div class="tabla">
+      <table >
+        <thead>
+          <tr>
+            <th>Pokemon</th>
+            <th>Tipo</th>
+            <th>numero</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody  id='fila'>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Pokemon</th>
-          <th>Tipo</th>
-          <th>numero</th>
-          <th>Detalles</th>
-        </tr>
-      </thead>
-      <tbody id='fila'>
-      </tbody>
-    </table>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div id="claseDePoke"  class="clasePoke">
+    <h4>clase Pokemon</h4>
+    <p >0</p>
   </div>
   </div>
 
 
-  </body>
-  <script type="text/javascript" src="pokemons/pokemons.js">
-  </script>
+  <span id ="tipo"></span>
+
+  <span id ="tipa" ></span>
+
+<div id="paginacion" class="paginac">
+<!-- <h2>Paginas</h2>
+  <ul class="pagination">
+    <li id="lista"><a onClick="cambiarPagina(pagina-1)">«</a></li>
+  <li><a onClick="cambiarPagina(2)" class="active" >2</a></li>
+  <li><a >3</a></li>
+  <li><a >4</a></li>
+  <li><a  onClick="cambiarPagina(pagina+1)">»</a></li>
+</ul> -->
+
+</div>
+
+</body>
+  <script type="text/javascript" src="pokemons/pokemons.js"></script>
 
   <script>
 
-  var tabla= document.getElementById('fila')
-  var datos = data.results
-  var tabledata =''
-  var numeroDePaginas= datos.length/10
-  var tamanoDePaginas=10
-  var pagina = 0
+      var tabla= document.getElementById('fila')
+      var datos = data.results
+      var tabledata =''
+      var numeroDePaginas= datos.length/10
+      var tamanoDePaginas=10
+      let pagina = 1
+
+  var datosFiltrados = datos
+  var namePokemon = document.getElementById('dark_field')
+
+  namePokemon.addEventListener('input',namePoke)
 
 
-   var numeros = Math.round(numeroDePaginas)
-   console.log(numeros)
-
-    var itemfinal=pagina*tamanoDePaginas-1
-    var iteminicial=itemfinal-(tamanoDePaginas-1)
-
-    var selector = document.getElementById('default_select')
-
-    for (var i = 1; i <= numeros; i++) {
-      var opcion =  opcion+'<option   value="'+i+'">'+i+'</option>'
-
-      selector.innerHTML=opcion
-    }
-
-    function cambiarPagina(pagina) {
-    numeroDePaginas*tamanoDePaginas
-    var itemfinal=pagina*tamanoDePaginas-1
-    var iteminicial=itemfinal-(tamanoDePaginas-1)
-    console.log(selector.value)
-    console.log(iteminicial)
-    tabla.innerHTML=''
-
-    if (itemfinal>=datos.length) {
-      itemfinal=datos.length-1
-    }
-
-    for (var i = iteminicial; i <= itemfinal; i++) {
+var  tituloClase = '<h4>clase Pokemon</h4>'
 
 
-      tabledata ='<tr><td>'+datos[i].name+'</td>'
-      tabledata = tabledata+ '<td>'+datos[i].type+'</td>'
-      tabledata = tabledata+ '<td>'+datos[i].national_number+'</td>'
-      tabledata = tabledata+ '<td> <a href="file:///home/donatello/newProject/detalle.html?idx='+i+ '"button" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
-      tabla.innerHTML=tabla.innerHTML+tabledata
 
+  function clasePoke() {
+    const WINDOW = this.value
+    var tiposPoke = datos.filter(function(pokemon){
+      return pokemon.type.includes(WINDOW);
 
-    }
+    })
+    datosFiltrados=tiposPoke
+    var conteo = document.getElementById('claseDePoke')
+    conteo.innerHTML=tituloClase+datosFiltrados.length
+    cambiarPagina(tiposPoke,1)
+  }
+
+function namePoke() {
+  const HISTORY = this.value.toLowerCase()
+  var resultadoBusqueda= datos.filter(function(x){
+    return x.name.toLowerCase().includes(HISTORY)
+  })
+  datosFiltrados=resultadoBusqueda
+  cambiarPagina(resultadoBusqueda,1)
+}
+
+function paginar(p) {
+
+  cambiarPagina(datosFiltrados,p)
 
 }
 
 
-selector.addEventListener('change',function () {
-  cambiarPagina(selector.value)
+const tiposDePokemon = ['fire',
+'flying',
+'normal',
+'poison',
+'water',
+'bug',
+'dark',
+'dragon',
+'electric',
+'fairy',
+'fighting',
+'ghost',
+'grass',
+'ground',
+'ice',
+'psychic',
+'rock',
+'steel',]
 
-})
+var  listaSelector = ''
+
+
+for (let i = 0; i < tiposDePokemon.length; i++) {
+tiposDePokemon[i]=tiposDePokemon[i].charAt(0).toUpperCase() + tiposDePokemon[i].slice(1);
+listaSelector = listaSelector+'<option value="'+tiposDePokemon[i]+'">'+tiposDePokemon[i]+'</option>'
+
+}
+
+
+
+var tiposPokemon = document.getElementById('error_select')
+
+tiposPokemon.addEventListener('change',clasePoke)
+
+
+
+tiposPokemon.innerHTML=listaSelector
+// for (var i = 0; i < datos[0].type; i++) {
+//   datos[0][type]
+//
+// }
 
 
 
 
 
 
-// for (var i = 0; i < datos.length; i++) {
+
+
+
+  var numeros = Math.round(numeroDePaginas)
+
+  var itemfinal=pagina*tamanoDePaginas-1
+  var iteminicial=itemfinal-(tamanoDePaginas-1)
+
+  var selector = document.getElementById('dark_select')
+
+    for (var i = 1; i <= numeros; i++) {
+      var opcion =  opcion+'<option   value="'+i+'">'+i+'</option>'
+      selector.innerHTML=opcion
+    }
+
+
+
+    function cambiarPagina(datos,pag) {
+    pagina=parseInt(pag)
+    numeroDePaginas*tamanoDePaginas
+    var itemfinal=pag*tamanoDePaginas-1
+    var iteminicial=itemfinal-(tamanoDePaginas-1)
+
+    tabla.innerHTML=''
+
+
+    if (itemfinal>=datos.length) {
+      itemfinal=datos.length-1
+    }
+    var poke = data.results.filter(function(y){
+      return y.national_number==='001'
+    })
+
+    for (var i = iteminicial; i <= itemfinal; i++) {
+      tabledata ='<tr><td>'+datos[i].name+'</td>'
+      tabledata = tabledata+ '<td>'
+      tabledata = tabledata+'<span class="nes-badge"><span class="tag '+datos[i].type[0].toLowerCase()+'">'+datos[i].type[0]+'</span></span>'
+
+      if (datos[i].type[1]) {
+
+        tabledata = tabledata+'<span class="nes-badge"><span class="tag '+datos[i].type[1].toLowerCase()+'">'+datos[i].type[1]+'</span></span>'+'</td>'
+      }
+      tabledata = tabledata+ '<td>'+datos[i].national_number+'</td>'
+      tabledata = tabledata+ '<td> <a href="file:///home/donatello/newProject/detalle.html?idx='+datos[i].national_number+ '"button" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
+      tabla.innerHTML=tabla.innerHTML+tabledata
+    }
+
+    // document.getElementById('tipo').innerHTML=datos[i].type[0]
+    // document.getElementById('tipo').className += ' ' +datos[i].type[0].toLowerCase()
+
+    // if (datos[i].type.length>1) {
+    //   document.getElementById('tipa').innerHTML=datos[i].type[1]
+    //   document.getElementById('tipa').className += ' ' +datos[i].type[1].toLowerCase()
+    // }
 
 
 
 
-</script>
-</html>
+    var listas = document.getElementById('paginacion')
+
+
+
+
+
+    var pagina2 = '<h2>Paginas</h2>'+'<ul class="pagination">'
+
+      if ((pagina-1)>0) {
+
+        pagina2  = pagina2 +'<li ><a  class="nes-btn is-error" onClick="paginar('+(pagina-1)+')">«</a></li>'
+      } else {
+        pagina2  = pagina2 +'<li><a   class="nes-btn is-disabled" >«</a></li>'
+      }
+
+      if ((pagina-1)>0) {
+        pagina2 = pagina2 +'<li><a  class="nes-btn is-error" onClick="paginar('+(pagina-1)+')">'+(pagina-1)+'</a></li>'
+
+      }
+      pagina2 = pagina2 +'<li><a  class="nes-btn is-primary" >'+pagina+'</a></li>'
+
+      if ((pagina+1)<numeros) {
+        pagina2 = pagina2 +'<li><a  class="nes-btn is-error" onClick="paginar('+(pagina+1)+')">'+(pagina+1)+'</a></li>'
+      }
+      if ((pagina+1)<numeros) {
+        pagina2 = pagina2  +'<li><a   class="nes-btn is-error" onClick="paginar('+(pagina+1)+')">»</a></li>'
+
+      } else {
+        pagina2 = pagina2  +'<li><a   class="nes-btn is-disabled" >»</a></li>'
+      }
+
+      pagina2=pagina2+'</ul>'
+
+      listas.innerHTML=pagina2
+
+
+}
+
+  selector.addEventListener('change',function () {
+  cambiarPagina(datos,selector.value)
+
+
+  })
+  cambiarPagina(datos,1)
+
+  </script>
+
+  </html>

@@ -1,7 +1,27 @@
+h1 {
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+
+.tabla{
+margin-top: 30px;
+padding-left: 50px;
+padding-top: 30px;
+display: grid;
+}
 
 
 th {
-  color: #258f66;
+  color: #fff;
+  padding: 20px;
+  font-size: 27px;
+
+}
+td {
+  color:#d4a2a2;
 }
 
 .maincontainer {
@@ -116,8 +136,50 @@ span {
   margin: auto;
   text-align: left;
   /* background-color: #000; */
-  color: #a34ba9;
+  color: rgba(#64aa4b, 0.68);
 }
 .poderes {
   text-align: left;
+}
+
+/* PAGINACION */
+.paginac{
+  text-align: center;
+}
+ul.pagination {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+}
+h2 {
+  color: rgb(154, 195, 185);
+}
+
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+
+   color: black;
+   float: left;
+   padding: 8px 16px;
+   text-decoration: none;
+}
+
+
+.ubica {background-color:  #4d0766;
+
+}
+.disable {
+  background-color: #4d0766;
+}
+.selector {
+  width: 110px;
+
+}
+.clasePoke {
+  color:white;
+  display: inline-block;
+  margin-top: 10px;
+  padding-top: 10px;
 }

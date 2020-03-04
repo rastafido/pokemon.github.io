@@ -1,0 +1,18 @@
+.nes-container  {
+  background-color: #8c0f0f;
+  font-size: 19px;
+  position: relative;
+    padding: 1.5rem 2rem;
+    border-color: rgba(25, 22, 27, 0.84);
+    border:  10px solid #fff !important;
+    border-width: 40px;
+    border-radius: 10px;
+
+}
+
+.nes-field, .nes-input, .nes-select,{
+  background-color: #8c0f0f ;
+}
+.nes-select {
+  background-color: #8c0f0f;
+}

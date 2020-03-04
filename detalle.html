@@ -12,62 +12,52 @@
  <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
 
  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+ <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
 
    <link rel="stylesheet" href="index.css">
   </head>
-  <body>
+  <body style=" background-color: #460404;">
 
 
 
-    <div class="nes-container with-title is-centered maincontainer">
-
-
-
-      <p class="title maintitle" id="nombre" ></p>
-
-      <img class="img" id="image"src="" alt="pokemon">
+    <div style="background-color: #8c0f0f;" class="nes-container with-title is-centered maincontainer">
+        <p style="color:#fff; margin: inherit; font-size:50px; " class="" id="nombre" ></p>
+        <img style="border-radius:10px; color:pink;" class="img" id="image"src="" alt="pokemon">
       <br>
-
-      <span class="nes-badge"><span id ="tipo" class="tag"></span></span>
-      <br>
-      <a href="#" class="nes-badge"><span id ="tipa" class="tag"></span></a>
+      <div style="display:inline-block; margin-top:10px;" class="">
+        <span class="nes-badge"><span id ="tipo" class="tag"></span></span>
+        <br>
+      </div>
+      <div style="display:inline-block; margin-top:10px;" class="">
+        <a  class="nes-badge"><span id ="tipa" class="tag"></span></a>
+      </div>
 
 
       <div class="poderes">
 
         <div style="display:inline">
-          <span>Ataque :</span>
-          <span id ="atk">sp_atk</span>
+            <span>Ataque :</span>
+            <span id ="atk">sp_atk</span>
         </div>
-
-
         <div class="">
-          <span>Defensa :</pspan>
+            <span>Defensa :</span>
             <span id ="defensa">defense</span>
-          </div>
-
-          <div class="">
+        </div>
+        <div class="">
             <span>sa_atk :</span>
             <span id ="ataque">attack</span>
-          </div>
-
-          <div class="">
+        </div>
+        <div class="">
             <span>sp_def :</span>
             <span id ="def">sp_def</span>
-          </div>
-
-          <div class="">
+        </div>
+        <div class="">
             <span>speed :</span>
             <span id ="velocidad">speed</span>
-          </div>
-
-
         </div>
-
       </div>
-
+    </div>
 
     <div class="botones">
 
@@ -78,18 +68,22 @@
     </div>
 
   </body>
-    <script type="text/javascript" src="pokemons/pokemons.js">
-    </script>
-    <script>
-      // const url = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
-      var url = window.location.search.replace('?idx','idx').split('&')[0]
-      var idx = parseInt(url.split('=')[1])
 
-    var poke = data.results[idx]
+    <script type="text/javascript" src="pokemons/pokemons.js"></script>
+
+    <script>
+
+      var url = window.location.search.replace('?idx','idx').split('&')[0]
+      var idx = url.split('=')[1]
+      var poke = data.results.filter(function(y){
+        return y.national_number===idx
+    })[0]
+
 
 
     document.getElementById('tipo').innerHTML=poke.type[0]
     document.getElementById('tipo').className += ' ' +poke.type[0].toLowerCase()
+
     if (poke.type.length>1) {
       document.getElementById('tipa').innerHTML=poke.type[1]
       document.getElementById('tipa').className += ' ' +poke.type[1].toLowerCase()
@@ -99,7 +93,7 @@
 
 
     document.getElementById('nombre').innerHTML=poke.name
-    document.getElementById('image').src=poke.sprites.animated
+    document.getElementById('image').src=poke.sprites.large
     document.getElementById('ataque').innerHTML=poke.attack
     document.getElementById('defensa').innerHTML=poke.defense
     document.getElementById('atk').innerHTML=poke.sp_atk
@@ -110,8 +104,17 @@
 
 
     document.getElementById("antes").addEventListener("click", function (){
-      newID=idx-1
-     window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID
+
+      var num= parseInt(idx)
+        newID=num-1
+      newID=newID.toString()
+
+    var nuevo =  newID.padStart(3,'0')
+
+
+
+
+     window.location.href="file:///home/donatello/newProject/detalle.html?idx="+nuevo
 
 
 
@@ -121,8 +124,17 @@
 });
 
  document.getElementById("despues").addEventListener("click", function (){
-  newID2=idx+1
- window.location.href="file:///home/donatello/newProject/detalle.html?idx="+newID2
+   var num= parseInt(idx)
+     newID=num+1
+   newID=newID.toString()
+
+ var nuevo2 =  newID.padStart(3,'0')
+
+    window.location.href="file:///home/donatello/newProject/detalle.html?idx="+nuevo2
+
+
+
+
 
 });
 
