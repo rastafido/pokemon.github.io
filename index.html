@@ -108,7 +108,8 @@
       const URL_PACH = window.location.pathname
       const BASE_PACH = URL_ORIGIN+URL_PACH.replace('index.html','')
       function cambioDeUrl() {
-        window.location=BASE_PACH+'detalle.html'
+        window.location=BASE_PACH+'detalle.html?idx=001'
+        cambiarPagina(datos)
       }
 
 
@@ -222,6 +223,7 @@ tiposPokemon.innerHTML=listaSelector
 
 
     function cambiarPagina(datos,pag) {
+
     pagina=parseInt(pag)
     numeroDePaginas*tamanoDePaginas
     var itemfinal=pag*tamanoDePaginas-1
