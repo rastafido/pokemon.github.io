@@ -72,6 +72,13 @@
     <script type="text/javascript" src="pokemons.js"></script>
 
     <script>
+    const URL = window.location
+    const URL_ORIGIN = window.location.origin
+    const URL_PACH = window.location.pathname
+    const BASE_PACH = URL_ORIGIN+URL_PACH.replace('detalle.html','')
+    function cambioDeUrl() {
+
+    }
 
       var url = window.location.search.replace('?idx','idx').split('&')[0]
       var idx = url.split('=')[1]

@@ -103,10 +103,15 @@
   <script type="text/javascript" src="pokemons.js"></script>
 
   <script>
-      const URL = window.location.origin
+      const URL = window.location
+      const URL_ORIGIN = window.location.origin
+      const URL_PACH = window.location.pathname
+      const BASE_PACH = URL_ORIGIN+URL_PACH.replace('index.html','')
       function cambioDeUrl() {
-
+        window.location=BASE_PACH
       }
+
+
       var tabla= document.getElementById('fila')
       var datos = data.results
       var tabledata =''
