@@ -76,7 +76,7 @@
 
     </div>
   </div>
-  <div id="claseDePoke"  class="clasePoke">
+  <div id="claseDePoke"  class="clasePoke" fido="Rasta">
     <h4>total de pokemones buscado por tipo</h4>
     <p >0</p>
   </div>
@@ -107,10 +107,16 @@
       const URL_ORIGIN = window.location.origin
       const URL_PACH = window.location.pathname
       const BASE_PACH = URL_ORIGIN+URL_PACH.replace('index.html','')
-      function cambioDeUrl() {
-        window.location=BASE_PACH+'detalle.html?idx=001'
-        cambiarPagina(datos)
+
+
+function cambioDeUrl(poke) {
+
+      window.location=BASE_PACH+'detalle.html?idx='+new String(poke).padStart(3,'0')
+
       }
+      var poke = data.results.filter(function(y){
+        return y.national_number==='001'
+      })
 
 
       var tabla= document.getElementById('fila')
@@ -249,7 +255,7 @@ tiposPokemon.innerHTML=listaSelector
         tabledata = tabledata+'<span class="nes-badge"><span class="tag '+datos[i].type[1].toLowerCase()+'">'+datos[i].type[1]+'</span></span>'+'</td>'
       }
       tabledata = tabledata+ '<td>'+datos[i].national_number+'</td>'
-      tabledata = tabledata+ '<td> <a href="file:///home/donatello/newProject/detalle.html?idx='+datos[i].national_number+ '"button" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
+      tabledata = tabledata+ '<td> <a onClick="cambioDeUrl('+datos[i].national_number+')" type="button" class="nes-btn is-error">Ver Mas</button></td></tr></a>'
       tabla.innerHTML=tabla.innerHTML+tabledata
     }
 

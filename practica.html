@@ -15,31 +15,47 @@
   </body>
 
 <script type="text/javascript">
-
-function suma(nume1, nume2) {
-  return nume1+nume2;
+var b = {
+  figo:{edad:0,velocidad:0,colorPiel:0},
+  ronaldo:{edad:0,velocidad:0,colorPiel:0},
+  kaka:{edad:0,velocidad:0,colorPiel:0},
+  ronaldinho:{edad:0,velocidad:0,colorPiel:0},
+  resultado: function () {
+    if (b.figo.colorPiel > b.ronaldo.colorPiel&&
+        b.figo.velocidad > b.kaka.velocidad&&
+        b.figo.edad > b.kaka.edad&&
+        b.ronaldinho.velocidad > b.kaka.velocidad&&
+        b.figo.edad.> b.ronaldinho.edad&&
+        b.figo.edad > b.ronaldo.edad&&
+        b.ronaldinho.colorPiel> b.ronaldo.colorPiel&&){
+        b.ronaldo.velocidad > b.kaka.  
+    }
+  }
 }
-
-function calcular(nume1,nume2, callback) {
-return callback(nume1,nume2);
-}
-
-console.log(calcular(7,7, suma))
-
-function date(callback) {
-  console.log(new Date);
-  setTimeout(function (){
-    let date = new Date;
-    callback(date);
-  },3000)
-}
-
-function printDate(dateNow) {
-  console.log(dateNow)
-}
-
-date(printDate)
-
+// function suma(nume1, nume2) {
+//   return nume1+nume2;
+// }
+//
+// function calcular(nume1,nume2, callback) {
+// return callback(nume1,nume2);
+// }
+//
+// console.log(calcular(7,7, suma))
+//
+// function date(callback) {
+//   console.log(new Date);
+//   setTimeout(function (){
+//     let date = new Date;
+//     callback(date);
+//   },3000)
+// }
+//
+// function printDate(dateNow) {
+//   console.log(dateNow)
+// }
+//
+// date(printDate)
+//
 
 
 

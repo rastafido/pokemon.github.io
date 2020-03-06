@@ -36,25 +36,30 @@
 
       <div class="poderes">
 
-        <div style="display:inline">
-            <span>Ataque :</span>
-            <span id ="atk">velocidad de ataque</span>
+        <div style="display:inline ;">
+            <span style="color:white;">Ataque :</span>
+            <progress id="atk" class="nes-progress is-success" value="50" max="190"></progress>
+            <!-- <span style="color:white;" id ="atk"></span> -->
         </div>
         <div class="">
-            <span>Defensa :</span>
-            <span id ="defensa">defense</span>
+            <span style="color:white;">Defensa :</span>
+            <progress id="def" class="nes-progress is-primary" value="80" max="230"></progress>
+            <!-- <span style="color:white;" id ="defensa">defense</span> -->
         </div>
         <div class="">
-            <span>velocidad de ataque:</span>
-            <span id ="ataque">attack</span>
+            <span style="color:white;">ataque especial:</span>
+            <progress id="ataque" class="nes-progress is-warning" value="30" max="100"></progress>
+            <!-- <span style="color:white;" id ="ataque">attack</span> -->
         </div>
         <div class="">
-            <span>velocidad de defensa:</span>
-            <span id ="def">velocidad de defensa</span>
+            <span style="color:white;">defensa especial:</span>
+            <progress id="defensa" class="nes-progress is-error" value="10" max="100"></progress>
+            <!-- <span style="color:white;" id ="defensa"></span> -->
         </div>
         <div class="">
-            <span>speed :</span>
-            <span id ="velocidad">speed</span>
+            <span style="color:white;">speed :</span>
+            <progress id="velocidad" class="nes-progress" value="90" max="100"></progress>
+            <!-- <span style="color:white;" id ="velocidad">speed</span> -->
         </div>
       </div>
     </div>
@@ -63,22 +68,21 @@
 
       <button id="antes" type="button" class="nes-btn is-warning ">Anterior</button>
       <button id="despues" type="button" class="nes-btn is-success ">Siguiente</button>
-      <a href="index.html"><button id="index" type="button" class="nes-btn  ">lista</button></a>
+
+      <div class="listaboton"">
+        <a href="index.html"><button id="index" type="button" class="nes-btn  ">lista</button></a>
+      </div>
 
     </div>
+
+
+
 
   </body>
 
     <script type="text/javascript" src="pokemons.js"></script>
 
     <script>
-    const URL = window.location
-    const URL_ORIGIN = window.location.origin
-    const URL_PACH = window.location.pathname
-    const BASE_PACH = URL_ORIGIN+URL_PACH.replace('detalle.html','')
-    function cambioDeUrl() {
-
-    }
 
       var url = window.location.search.replace('?idx','idx').split('&')[0]
       var idx = url.split('=')[1]
@@ -101,27 +105,39 @@
 
     document.getElementById('nombre').innerHTML=poke.name
     document.getElementById('image').src=poke.sprites.large
-    document.getElementById('ataque').innerHTML=poke.attack
-    document.getElementById('defensa').innerHTML=poke.defense
-    document.getElementById('atk').innerHTML=poke.sp_atk
-    document.getElementById('def').innerHTML=poke.sp_def
-    document.getElementById('velocidad').innerHTML=poke.speed
+    document.getElementById('ataque').value=poke.attack
+    document.getElementById('defensa').value=poke.defense
+    document.getElementById('atk').value=poke.attack
+    document.getElementById('def').value=poke.defense
+    document.getElementById('velocidad').value=poke.speed
 
 
+    const URL = window.location
+    const URL_ORIGIN = window.location.origin
+    const URL_PACH = window.location.pathname
+    const URL_HREF = window.location.href
+    // const BASE_PACH = URL_ORIGIN+URL_PACH.replace('detalle.html','')
+
+
+    var poke = data.results.filter(function(y){
+      return y.national_number==='001'
+    })
 
 
     document.getElementById("antes").addEventListener("click", function (){
 
       var num= parseInt(idx)
-        newID=num-1
+      newID=num-1
       newID=newID.toString()
+      var nuevo =  newID.padStart(3,'0')
+      const BASE_PACH = URL_ORIGIN+URL_PACH.replace('index.html','')
+      console.log(BASE_PACH)
+      console.log(nuevo)
+    // URL_PACH.replace('detalle.html','')
+    window.location=BASE_PACH+'?idx='+nuevo
 
-    var nuevo =  newID.padStart(3,'0')
 
 
-
-
-     window.location.href="file:///home/donatello/newProject/detalle.html?idx="+nuevo
 
 
 
@@ -134,10 +150,10 @@
    var num= parseInt(idx)
      newID=num+1
    newID=newID.toString()
-
+const BASE_PACH = URL_ORIGIN+URL_PACH.replace('index.html','')
  var nuevo2 =  newID.padStart(3,'0')
 
-    window.location.href="file:///home/donatello/newProject/detalle.html?idx="+nuevo2
+    window.location=BASE_PACH+'?idx='+nuevo2
 
 
 
